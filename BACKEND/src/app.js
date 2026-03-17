@@ -18,7 +18,13 @@ const io = connectToSocket(server);
 
 
 app.set("port",(process.env.PORT || 8000))   //Gc2RcbLNVGl4nBcp
-app.use(cors());
+app.use(cors({
+  origin: "https://real-meet-f.onrender.com",
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  credentials: true
+}));
+
+app.options("*", cors());
 app.use(express.json({limit: "40kb"}));
 app.use(express.urlencoded({limit: "40kb", extended: true}));
 

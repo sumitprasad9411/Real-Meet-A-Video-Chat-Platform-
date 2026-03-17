@@ -1,0 +1,444 @@
+/* .landingPageContainer{
+  width: 100vw;
+  height: 100vh;
+  background: url("/public/background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+}
+
+.landingPageContainer nav{
+  padding-inline: 1.2rem;
+  padding-block: 1.6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+.landingPageContainer nav h2{
+  font-size: 1.9rem;
+  font-weight: 500;
+}
+
+.landingPageContainer nav .navlist {
+  display: flex;
+  gap: 1.6rem;
+  cursor: pointer;
+}
+
+.landingMainContainer{
+  display: flex;
+  justify-content: space-between;
+  padding-inline: 3rem;
+  height: 80vh;
+  align-items: center;
+}
+
+.landingMainContainer > div:nth-child(1){
+   font-size: 2.1rem;
+}
+
+.landingMainContainer > div:nth-child(1) div[role='button']{
+   background: #d97500;
+   width: fit-content;
+   padding: 1rem;
+   border-radius: 20px;
+   margin-top: 1.9rem;
+}
+
+.landingMainContainer > div:nth-child(1) div[role='button'] a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.8rem;
+}
+
+.landingMainContainer > div:nth-child(2) img{
+  height: 70vh;
+  width: auto;
+} */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family: 'Poppins',sans-serif;
+}
+
+
+
+
+.landingPageContainer{
+  width: 100%;
+  min-height: 100vh;
+  background: url("/public/background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+/* NAVBAR */
+
+.landingPageContainer nav{
+  padding: 1.5rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.landingPageContainer nav h2{
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.navlist{
+  display: flex;
+  gap: 2rem;
+  cursor: pointer;
+  align-items: center;
+}
+
+.navlist p{
+  font-size: 1rem;
+}
+
+/* MAIN SECTION */
+
+.landingMainContainer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem;
+  gap: 2rem;
+}
+
+/* LEFT TEXT */
+
+.landingMainContainer > div:nth-child(1){
+   max-width: 600px;
+}
+
+.landingMainContainer h1{
+  font-size: 3rem;
+  line-height: 1.3;
+}
+
+.landingMainContainer p{
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+/* BUTTON */
+
+.landingMainContainer > div:nth-child(1) div[role='button']{
+   background: #d97500;
+   width: fit-content;
+   padding: 0.9rem 1.5rem;
+   border-radius: 25px;
+   margin-top: 2rem;
+   transition: 0.3s;
+}
+
+.landingMainContainer > div:nth-child(1) div[role='button']:hover{
+  background: #ff9839;
+}
+
+.landingMainContainer a{
+  text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+}
+
+/* RIGHT IMAGE */
+
+.landingMainContainer > div:nth-child(2) img{
+  width: 400px;
+  max-width: 100%;
+}
+
+/* ================= */
+/* 📱 TABLET DESIGN */
+/* ================= */
+
+@media (max-width: 1024px){
+
+  .landingMainContainer{
+    padding: 2rem;
+  }
+
+  .landingMainContainer h1{
+    font-size: 2.4rem;
+  }
+
+  .landingMainContainer img{
+    width: 320px;
+  }
+
+}
+
+/* ================= */
+/* 📱 MOBILE DESIGN */
+/* ================= */
+
+@media (max-width: 768px){
+
+  .landingMainContainer{
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .landingMainContainer > div:nth-child(1){
+    order: 2;
+  }
+
+  .landingMainContainer > div:nth-child(2){
+    order: 1;
+  }
+
+  .landingMainContainer h1{
+    font-size: 2rem;
+  }
+
+  .landingMainContainer p{
+    font-size: 1rem;
+  }
+
+  .landingMainContainer img{
+    width: 260px;
+  }
+
+  .landingMainContainer > div:nth-child(1) div[role='button']{
+    margin: auto;
+    margin-top: 1.5rem;
+  }
+
+}
+
+/* ================= */
+/* 📱 SMALL MOBILE */
+/* ================= */
+
+@media (max-width: 480px){
+
+  .landingPageContainer nav{
+    padding: 1rem;
+  }
+
+  .navlist{
+    gap: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .landingMainContainer h1{
+    font-size: 1.7rem;
+  }
+
+  .landingMainContainer img{
+    width: 220px;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*  */
+
+
+
+
+.navBar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 6%;
+background:white;
+box-shadow:0 3px 10px rgba(0,0,0,0.08);
+flex-wrap: wrap;
+}
+
+.meetContainer{
+flex: 1;
+display:flex;
+align-items:center;
+justify-content:space-between;
+height:85vh;
+padding:40px 6%;
+gap:40px
+}
+
+
+
+.leftPanel{
+max-width:520px;
+}
+
+.leftPanel h1{
+font-size:48px;
+font-weight:700;
+margin-bottom:15px;
+}
+
+
+.rightPanel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rightPanel img{
+width: 100%;
+max-width:520px;
+border-radius:20px;
+box-shadow:0 20px 40px rgba(0,0,0,0.1);
+}
+
+
+/* .Homepage{
+  width: 100vw;
+  height: 100vh;
+  background:url(https://images.pexels.com/photos/7135020/pexels-photo-7135020.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+} */
+
+
+.joinBox{
+display:flex;
+align-items:center;
+gap:12px;
+background:white;
+padding:18px 22px;
+border-radius:14px;
+box-shadow:0 8px 25px rgba(0,0,0,0.08);
+width:100%;
+max-width: 420px;
+}
+
+
+/*  */
+
+
+.homePage{
+height:100vh;
+background: linear-gradient(135deg,#dfe9f3,#ffffff,#c2e9fb);
+display:flex;
+flex-direction:column;
+font-family: 'Poppins',sans-serif;
+}
+
+/* NAVBAR */
+
+
+
+.logo{
+color:#1976d2;
+font-weight:600;
+}
+
+.navRight{
+display:flex;
+align-items:center;
+gap:8px;
+}
+
+.navText{
+margin-right:15px;
+font-weight:500;
+}
+
+
+
+
+/* LEFT */
+
+
+.subText{
+font-size:18px;
+color:#6b7280;
+margin-bottom:30px;
+line-height:1.6;
+}
+
+
+
+
+
+.homePage{
+height:100vh;
+background:linear-gradient(120deg,#e9f2ff,#d8ecff,#c6e2ff);
+} 
+
+
+
+
+
+/*      */
+
+@media (max-width:900px){
+
+  .meetContainer{
+    flex-direction:column;
+    text-align:center;
+    padding:40px 20px;
+  }
+
+  .leftPanel h1{
+    font-size:36px;
+  }
+
+  .subText{
+    font-size:16px;
+  }
+
+  .joinBox{
+    flex-direction:column;
+    gap:15px;
+    width:100%;
+  }
+
+  .rightPanel img{
+    max-width:380px;
+  }
+
+}
+
+
+/* ============================ */
+/* 📱 SMALL MOBILE */
+/* ============================ */
+
+@media (max-width:500px){
+
+  .navBar{
+    padding:15px 20px;
+  }
+
+  .leftPanel h1{
+    font-size:28px;
+  }
+
+  .subText{
+    font-size:14px;
+  }
+
+  .rightPanel img{
+    max-width:280px;
+  }
+
+}

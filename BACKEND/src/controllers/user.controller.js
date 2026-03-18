@@ -7,71 +7,68 @@ import { Meeting } from "../models/meeting.model.js";
 
 
 const login = async (req, res) => {
+
     const { username, password } = req.body;
 
     if (!username || !password) {
-        return res.status(400).json({ message: "Please provide credentials" });
+        return res.status(400).json({ message: "Please Provide" })
     }
 
     try {
         const user = await User.findOne({ username });
-
         if (!user) {
-            return res.status(404).json({ message: "User Not Found" });
+            return res.status(httpStatus.NOT_FOUND).json({ message: "User Not Found" })
         }
 
-        const isPasswordCorrect = await bcrypt.compare(password, user.password);
 
-        if (!isPasswordCorrect) {
-            return res.status(401).json({ message: "Invalid Username or Password" });
+        let isPasswordCorrect = await bcrypt.compare(password, user.password)
+
+        if (isPasswordCorrect) {
+            let token = crypto.randomBytes(20).toString("hex");
+
+            user.token = token;
+            await user.save();
+            return res.status(httpStatus.OK).json({ token: token })
+        } else {
+            return res.status(httpStatus.UNAUTHORIZED).json({ message: "Invalid Username or password" })
         }
-
-        const token = crypto.randomBytes(20).toString("hex");
-
-        user.token = token;
-        await user.save();
-
-        return res.status(200).json({ token });
 
     } catch (e) {
-        console.error(e);
-        return res.status(500).json({ message: "Something went wrong" });
+        console.log(e);
+        return res.status(500).json({ message: `Something went wrong ${e}` })
     }
-};
+}
 
 
 const register = async (req, res) => {
     const { name, username, password } = req.body;
 
-    if (!name || !username || !password) {
-        return res.status(400).json({ message: "All fields required" });
-    }
 
     try {
         const existingUser = await User.findOne({ username });
-
         if (existingUser) {
-            // FIX: use 409 instead of 302
-            return res.status(409).json({ message: "User already exists" });
+            return res.status(httpStatus.FOUND).json({ message: "User already exists" });
         }
 
         const hashedPassword = await bcrypt.hash(password, 10);
 
         const newUser = new User({
-            name,
-            username,
+            name: name,
+            username: username,
             password: hashedPassword
         });
 
         await newUser.save();
 
-        return res.status(201).json({ message: "User Registered" });
+        res.status(httpStatus.CREATED).json({ message: "User Registered" })
+
 
     } catch (e) {
-        console.error(e);
-        return res.status(500).json({ message: "Something went wrong" });
+        
+        res.json({ message: `Something went wrong ${e}` })
     }
-};
+
+}
 
 
 const getUserHistory = async (req, res) => {

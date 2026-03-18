@@ -25,8 +25,6 @@ function App() {
 
           <Route path='/auth' element={<Authentication />} />
 
-          {/* <Route path='/home' element={<HomeComponent />} /> */}
-
           <Route path='/home' element={<HomeComponent />} />
 
           <Route path='/history' element={<History />} />

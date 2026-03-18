@@ -24,6 +24,8 @@ export const AuthProvider = ({ children }) => {
 
     const handleRegister = async (name, username, password) => {
         try {
+              console.log("Sending register request...");
+
             let request = await client.post("/register", {
                 name: name,
                 username: username,
@@ -35,12 +37,16 @@ export const AuthProvider = ({ children }) => {
                 return request.data.message;
             }
         } catch (err) {
+            console.log(err);
             throw err;
         }
     }
 
     const handleLogin = async (username, password) => {
         try {
+             console.log("Sending login request...");
+
+
             let request = await client.post("/login", {
                 username: username,
                 password: password
@@ -54,6 +60,7 @@ export const AuthProvider = ({ children }) => {
                 router("/home")
             }
         } catch (err) {
+            console.log(err);
             throw err;
         }
     }
